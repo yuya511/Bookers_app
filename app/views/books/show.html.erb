@@ -1,9 +1,11 @@
-<h3>Book was successfully created</h3>
-<div>
-  <h4>Title: <%= @book.title %></h4>
-  <h4>Body: <%= @book.body %></h4>
-</div>
-
-<div>
-  <%= link_to 'Back', books_path %>
-</div>
+<body>
+  <h2>Book was successfully created</h2>
+  <div>
+    <h4>Title: <span><%= @book.title %></span></h4>
+    <h4>Body: <span><%= @book.body %></span></h4>
+  </div>
+  
+  <div>
+    <%=link_to 'Edit', "/books/#{@book.id}/edit" %> | <%= link_to 'Back', books_path %>
+  </div>
+</body>

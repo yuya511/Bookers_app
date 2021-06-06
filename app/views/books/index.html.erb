@@ -1,27 +1,29 @@
-<h1>Books</h1>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th></th>
-  </tr>
-  <% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.body %></td>
-    <td>
-      <%= link_to 'Show', "/books/#{book.id}" %>
-      <%= link_to 'Edit', "/books/#{book.id}/edit" %>
-      <%= link_to 'Destroy', destroy_book_path(book.id), method: :delete %>
-    </td>
-  </tr>
+<body>
+  <h1>Books</h1>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.body %></td>
+      <td>
+        <%= link_to 'Show', "/books/#{book.id}" %>
+        <%= link_to 'Edit', "/books/#{book.id}/edit" %>
+        <%= link_to 'Destroy', destroy_book_path(book.id), method: :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+  <h2>New book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+    <span>Title</span><br>
+    <%= f.text_field :title %><br>
+    <span>Body</span><br>
+    <%= f.text_area :body %><br>
+    <%= f.submit 'Create Book' %>
   <% end %>
-</table>
-<h2>New book</h2>
-<%= form_with model:@book, local:true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-  <%= f.submit 'Create Book' %>
-<% end %>
+</body>
