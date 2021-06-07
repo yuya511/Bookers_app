@@ -1,5 +1,5 @@
 <body>
-  <h2>Book was successfully created</h2>
+  <h2 class = "successfuly"><%= flash[:notice] %></h2>
   <div>
     <h4>Title: <span><%= @book.title %></span></h4>
     <h4>Body: <span><%= @book.body %></span></h4>
