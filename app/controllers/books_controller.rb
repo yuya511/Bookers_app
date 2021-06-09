@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       #flashメッセージを表示
-      flash[:notice] = "Book was successfuly created."
+      flash[:notice] = "Book was successfully created."
       redirect_to "/books/#{@book.id}"
     else
       #renderだとインスタンス変数が引き継がれないため書く
@@ -30,7 +30,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-      flash[:notice] = "Book was successfuly updated"
+      flash[:notice] = "Book was successfully updated"
       redirect_to "/books/#{@book.id}"
     else
       render action: :edit
@@ -41,7 +41,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    flash[:notice] = "Book was successfuly destroyed."
+    flash[:notice] = "Book was successfully destroyed."
     redirect_to books_path
   end
 

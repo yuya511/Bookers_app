@@ -2,7 +2,7 @@
   <h1>Edinting Book</h1>
   
   <% if @book.errors.any? %>
-  <h3>eorrorがあります！</h3>
+  <h3>errorがあります！</h3>
   <ul class="errors">
     <% @book.errors.full_messages.each do |message| %>
     <li class="error"><%= message %></li>
