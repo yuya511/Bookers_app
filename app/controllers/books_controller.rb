@@ -6,12 +6,12 @@ class BooksController < ApplicationController
 
   def create
     #book_paramsでストロングパラーメータとして取ったものを引数にしている
-    #errorメッセジを受け取るときはインスタンス変数にしてviewでerrormesssageを受け取れるようにする
+    #errorメッセ-ジを受け取るときはインスタンス変数にしてviewでerrormesssageを受け取れるようにする
     @book = Book.new(book_params)
     if @book.save
       #flashメッセージを表示
       flash[:notice] = "Book was successfully created."
-      redirect_to "/books/#{@book.id}"
+      redirect_to book_path(@book.id)
     else
       #renderだとインスタンス変数が引き継がれないため書く
       @books = Book.all
@@ -31,7 +31,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = "Book was successfully updated"
-      redirect_to "/books/#{@book.id}"
+      redirect_to book_path(params[:id])
     else
       render action: :edit
     end

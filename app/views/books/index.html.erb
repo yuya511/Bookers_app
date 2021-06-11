@@ -14,14 +14,14 @@
       <td>
         <%= link_to 'Show', book_path(book.id) %>
         <%= link_to 'Edit', edit_book_path(book.id) %>
-        <%= link_to 'Destroy', destroy_book_path(book.id), method: :delete %>
+        <%= link_to 'Destroy', "/books/#{book.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
     <% end %>
   </table>
   <h2>New book</h2>
   <%= form_with model:@book, local:true do |f| %>
-  
+
   <!-- errorメッセージの処理 -->
   <% if @book.errors.any? %>
   <h3>errorがあります！</h3>
@@ -31,7 +31,7 @@
     <% end %>
   </ul>
   <% end %>
-    
+
     <span>Title</span><br>
     <%= f.text_field :title %><br>
     <span>Body</span><br>
